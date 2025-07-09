@@ -29,19 +29,27 @@ models:
 
       - name: driver_name
         description: Driver's full name
+        tests:
+          - not_null
 
       - name: driver_phone_number
         description: Driver's contact number
+        tests:
+          - not_null
 
       - name: customer_id
         description: Foreign key to the customer
 
       - name: customer_name
         description: Customer's full name
+        tests:
+          - not_null
 
       - name: customer_phone_number
         description: Customer's contact number
-
+        tests:
+          - not_null
+          
       - name: transaction_status
         description: Status of the transaction (e.g., completed, cancelled)
 

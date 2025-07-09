@@ -71,3 +71,7 @@ SELECT
 FROM transaction_list tl
 LEFT JOIN driver_list dl ON tl.driver_id = dl.driver_id
 LEFT JOIN customer_list cl ON tl.customer_id = cl.customer_id
+WHERE dl.driver_name IS NOT NULL 
+AND dl.driver_phone_number IS NOT NULL
+AND cl.customer_name IS NOT NULL
+AND cl.customer_phone_number IS NOT NULL
