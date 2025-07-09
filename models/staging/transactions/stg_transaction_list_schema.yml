@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_transaction_list
+    description: >
+      Staging model for transaction list. Joins raw transaction data with driver and customer
+      details and deduplicates using ROW_NUMBER based on transaction_updated_at.
+    columns:
+      - name: transaction_id
+        description: Unique identifier for the transaction
+        tests:
+          - unique
+          - not_null
+
+      - name: transaction_created_at
+        description: Raw timestamp when the transaction was created
+
+      - name: transaction_created_at_sgt
+        description: Formatted created_at timestamp in Asia/Manila timezone
+
+      - name: transaction_updated_at
+        description: Raw timestamp when the transaction was last updated
+
+      - name: transaction_updated_at_sgt
+        description: Formatted updated_at timestamp in Asia/Manila timezone
+
+      - name: driver_id
+        description: Foreign key to the driver
+
+      - name: driver_name
+        description: Driver's full name
+
+      - name: driver_phone_number
+        description: Driver's contact number
+
+      - name: customer_id
+        description: Foreign key to the customer
+
+      - name: customer_name
+        description: Customer's full name
+
+      - name: customer_phone_number
+        description: Customer's contact number
+
+      - name: transaction_status
+        description: Status of the transaction (e.g., completed, cancelled)
+
+      - name: transaction_fare
+        description: Fare amount for the transaction
