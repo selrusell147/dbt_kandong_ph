@@ -66,8 +66,8 @@ SELECT
   tl.customer_id,
   cl.customer_name,
   cl.customer_phone_number,
-  tl.transaction_status transaction_booking_status,
-  tl.transaction_fare
+  tl.transaction_status,
+  tl.transaction_fare AS transaction_fare_total
 FROM transaction_list tl
 LEFT JOIN driver_list dl ON tl.driver_id = dl.driver_id
 LEFT JOIN customer_list cl ON tl.customer_id = cl.customer_id
