@@ -1,6 +1,6 @@
 {{
     config(
-        materialized='incremental',
+        materialized='table',
         unique_key='transaction_id',
         schema='stg_transaction_list'
     )
